@@ -1,5 +1,8 @@
 /**
  *  Wrapper querySelector
+ * @param (String)  cls - css selectror
+ * @param (String) evnt - Name event
+ * @param (Function) func - callback function on event
 */
 function $ (cls, event = false, func = false){
 	if (event && func){
