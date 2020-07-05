@@ -1,5 +1,11 @@
 /**
  *  Wrapper querySelector
+ *
+ * @param {String} cls - css selector
+ * @param {String} event - event name
+ * @param {Function} func - callback function event handler
+ *
+ * @return {Object} HTMLElement(s)
 */
 function $ (cls, event = false, func = false){
 	if (event && func){
@@ -14,18 +20,15 @@ function $ (cls, event = false, func = false){
 
 
 	/**
-	* Pop-up
+	* Pop-up class
 	*/
 	class popup {
 		constructor() {
 			this.popup_box = $(".popup")
 			this.content = $(".popup__content")
-			
-			//$(".popup__close-btn", "click", ev => this.hide())
 		}
 		
-		show(msg) {
-			//msg && this.content.innerHTML = msg
+		show() {
 			this.popup_box.classList.remove("popup_hide")
 			document.body.classList.add("blur")
 		}

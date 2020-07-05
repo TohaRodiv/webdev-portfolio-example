@@ -1,3 +1,4 @@
+// Init swiper.js
 new Swiper (".swiper-container", {
 	effect: "slide",
 	grabCursor: true,

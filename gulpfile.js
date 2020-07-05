@@ -1,8 +1,18 @@
 const {task, dest, src, watch, parallel} = require ("gulp"),
-pug 		= require ("gulp-pug"),
-sass 		= require ("gulp-sass"),
-include 	= require ("gulp-include"),
-imagemin 	= require ("gulp-imagemin")
+pug 			= require ("gulp-pug"),
+sass 			= require ("gulp-sass"),
+include 		= require ("gulp-include"),
+imagemin 		= require ("gulp-imagemin"),
+autoprefixer 	= require ("gulp-autoprefixer")
+
+
+// Options sass, pug and more plugins
+const opt = {
+	//pug: {pretty: true},
+	sass: {
+		outputStyle: "compressed"
+	}
+}
 
 
 
@@ -33,9 +43,6 @@ const dist = {
 
 
 
-
-
-
 function includes_js (opt = {}) {
 	src (source.scriptJs)
 	.pipe ( include().on ("error", console.log) )
@@ -53,6 +60,7 @@ function compile_pug (opt = {}) {
 function compile_sass (opt = {}) {
 	src (source.sass)
 	.pipe ( sass(opt).on ("error", console.log) )
+	.pipe ( autoprefixer( opt.autoprefixer || {} ).on ("error", console.log) )
 	.pipe ( dest (dist.css) )
 }
 
@@ -85,12 +93,6 @@ function pwatch (obj) {
 
  function main (mode = false) {
 	 // Mode false - only compile, mode true - watch
-	 
-	 // Options sass, pug and more plugins
-	 const opt = {
-		 pug: {pretty: "\t"}
-	}
-
 	mode ? pwatch (opt) : only_compile (opt)
 }
 
@@ -136,7 +138,7 @@ task ("default", async ev => {
 
 /**
  * Wrap gulp streams into fail-safe function for better error reporting
- * Usage:
+ * Use:
  * gulp.task('less', wrapPipe(function(success, error) {
  *   return gulp.src('less/*.less')
  *      .pipe(less().on('error', error))

@@ -2,6 +2,11 @@ let mainMenu 	= 	$(".main-menu").classList,
 burger 			= 	$(".burger").classList,
 body 			= 	document.body
 
+
+/**
+ * Toggle menu for burger
+ * @param  {Boolean} lock block overflow-y body
+ */
 function toggleMenu (lock = true) {
 	lock && body.classList.toggle ("lock")
 
