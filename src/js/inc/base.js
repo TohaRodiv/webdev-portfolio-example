@@ -1,17 +1,11 @@
 /**
  *  Wrapper querySelector
-<<<<<<< HEAD
  *
  * @param {String} cls - css selector
  * @param {String} event - event name
  * @param {Function} func - callback function event handler
  *
  * @return {Object} HTMLElement(s)
-=======
- * @param (String)  cls - css selectror
- * @param (String) evnt - Name event
- * @param (Function) func - callback function on event
->>>>>>> refs/remotes/origin/master
 */
 function $ (cls, event = false, func = false){
 	if (event && func){
