@@ -1,0 +1,20 @@
+section.backfeed#contact
+	.container
+		.heading
+			h2.heading__head Оставить заявку
+			form.form(action="#" method="POST" id="backfeed_form")
+				.form__group
+					label.form__title( for="username") Your name
+					.form__input-wrap
+						input.form__input.form__input_text(type="text" name="name" maxlength="60" id="username"  required)
+				.form__group
+					label.form__title( for="useremail") Your e-mail
+					.form__input-wrap
+						input.form__input.form__input_email(type="email" name="email" maxlength="60" id="useremail" required)
+				.form__group
+					label.form__title( for="usermessage") Your message
+					.form__input-wrap
+						textarea.form__input.form__input_textarea(name="message" maxlength="1000" id="usermessage" required)
+				.form__group
+					.form__input-wrap
+						input.form__input.form__input_submit(type="submit" value="Оставить заявку")

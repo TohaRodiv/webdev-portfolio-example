@@ -1,0 +1,87 @@
+// Custom forms
+
+.form
+	text-align: left
+	margin: 10px auto
+	padding: 10px
+
+	box-sizing: border-box
+
+	width: 50%
+
+	@media (max-width: 720px)
+		width: 70%
+	@media (max-width: 500px)
+		width: 90%
+
+	&__group
+		padding: 10px
+
+	&__title
+		display: inline-block
+		padding: 10px 10px 10px 15px
+
+		font-size: 18px
+		font-variant: small-caps
+		font-family: "Ubuntu"
+
+		color: #555
+
+	&__input-wrap
+
+	&__input
+		box-sizing: border-box
+		width: 100%
+		border: 2px solid transparent
+		border-bottom-color: #AAA
+		background-color: #CCC
+
+		padding: 15px 25px
+
+		//box-shadow: 0px 3px 4px 1px #999
+
+		font-family: "Ubuntu"
+		font-size: 16px
+
+		transition: 350ms
+
+		&:focus
+			outline: none
+			border-bottom-color: #777
+			transition: 350ms
+			animation: bubble-input 600ms
+
+		&:invalid
+			border-bottom-color: #F55
+
+		&_text
+			color: #333
+
+		&_email
+			color: #333
+
+		&_textarea
+			color: #333
+			resize: vertical
+
+		&_submit
+			cursor: pointer
+			font-weight: bold
+			font-variant: small-caps
+			
+			border-color: #CCC
+			border-bottom: 3px solid #777
+			letter-spacing: 1px
+			transition: 350ms
+
+		&_submit:focus
+			animation: none
+
+		&_submit:hover
+			border-color: #BBB
+			border-bottom-color: #555
+			color: #555
+
+		&_submit:active
+			transform: scaleX(.8) scaleY(1.2)
+			transition: 300ms

@@ -1,0 +1,33 @@
+@import "settings.sass"
+
+.header
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	padding: 0 0 0 15px
+	box-sizing: border-box
+	z-index: 10
+
+	background-color: rgba(0, 0, 0, .95)
+
+	.container
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+	&__burger
+		@include media ("tablet-medium")
+			position: fixed
+			display: block
+			top: 15px
+			right: 5%
+			z-index: 11
+			
+			width: 35px
+			height: 20px
+
+		@include media ("tablet-medium", min)
+			display: none
+	&__logo
+		padding: 10px 0

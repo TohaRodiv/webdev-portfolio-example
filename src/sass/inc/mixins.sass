@@ -1,0 +1,15 @@
+@mixin adaptiv-font($pcSize, $minSize)
+	 $addSize: $pcSize - $minSize
+	 $maxWidth: $maxWidth - 320
+	 font-size: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}))
+
+
+$breakpoints: ("tablet-medium": 780px,)
+
+@mixin media ($width, $type: max)
+	@if map_has_key($breakpoints, $width)
+		$width: map_get($breakpoints, $width)
+	@if $type == max
+		$width: $width - 1px
+	@media (#{$type}-width: $width)
+		@content

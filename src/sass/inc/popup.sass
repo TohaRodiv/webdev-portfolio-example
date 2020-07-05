@@ -1,0 +1,92 @@
+
+.popup--style 
+	background-color: #000
+	border-radius: 7px
+	border: 1px solid #FFF
+	box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, .3)
+
+
+.popup--geometry 
+	display: flex
+	justify-content: center
+	align-items: center
+	position: fixed
+	top: 50%
+	left: 50%
+	transform: translateX(-50%) translateY(-50%)
+	padding: 20px
+	height: 50vh
+	width: 50vw
+	z-index: 11
+
+
+.popup--media 
+	@media (max-width: 600px) 
+		width: 80vw
+	
+
+
+@mixin popup-toggle($opacity) 
+	opacity: $opacity
+	@if $opacity == 1 
+		visibility: visible
+		top: 50%
+	
+	@else 
+		top: 0
+		visibility: hidden
+	
+	transition: 1s
+
+
+
+.popup 
+	@extend .popup--style, .popup--geometry, .popup--media
+	+popup-toggle (1)
+	&__content 
+		color: #ccc
+		font-family: sans-serif
+		font-size: 18px
+		font-variant: small-caps
+	
+	&__close-btn 
+		position: absolute
+		right: 15px
+		top: 15px
+		
+		color: #fff
+		opacity: .3
+
+		font-family: tahoma
+		font-size: 3em
+		line-height: 1
+
+		padding: 10px 15px
+		
+		cursor: pointer
+		
+		transition: 500ms
+	
+	&__close-btn:hover
+		opacity: 1
+		transition: 500ms
+	
+
+
+.popup_hide 
+	@include popup-toggle (0)
+
+
+.blur
+	overflow: hidden
+	position: relative
+
+body.blur:after 
+	content: ""
+	position: absolute
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	z-index: 10
+	background-color: rgba(0, 0, 0, .9)
