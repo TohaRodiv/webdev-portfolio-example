@@ -5,7 +5,7 @@
  * @param {String} event - event name
  * @param {Function} func - callback function event handler
  *
- * @return {Object} HTMLElement(s)
+ * @return {Object|Array} HTMLElement
 */
 function $ (cls, event = false, func = false){
 	if (event && func){
